@@ -320,10 +320,10 @@ class Context(object):
         try:
             try:
                 from PIL import Image # get PIL's functionality...
-            except ImportError, err:
+            except ImportError as err:
                 # old style?
                 import Image
-        except ImportError, err:
+        except ImportError as err:
             log.error( "Unable to import PIL" )
             saved = False
             return (0,0)
@@ -829,7 +829,7 @@ class Context(object):
             return None
         try:
             classObject = entrypoint.load()
-        except ImportError, err:
+        except ImportError as err:
             return None
         else:
             return classObject
