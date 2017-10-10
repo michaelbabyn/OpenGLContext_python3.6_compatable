@@ -140,7 +140,7 @@ class _Texture( nodetypes.Texture, node.Node ):
 try:
     try:
         from PIL import Image
-    except ImportError, err:
+    except ImportError as err:
         # old style?
         import Image
     from ImageFile import Parser
