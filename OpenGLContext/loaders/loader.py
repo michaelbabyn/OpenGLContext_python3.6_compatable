@@ -113,7 +113,7 @@ class _Loader( object ):
             name = entrypoint.name 
             try:
                 creator = entrypoint.load()
-            except ImportError, err:
+            except ImportError as err:
                 log.warn( """Unable to load loader implementation for %s: %s""", name, err )
             else:
                 try:
