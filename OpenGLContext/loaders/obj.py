@@ -68,7 +68,7 @@ from OpenGLContext.scenegraph import basenodes
 import urllib
 try:
     from hashlib import md5 
-except ImportError, err:
+except ImportError as err:
     from md5 import md5
 
 class OBJHandler( base.BaseHandler ):
