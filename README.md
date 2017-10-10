@@ -4,7 +4,9 @@ How to install:
     
     sudo python3 setup.py install
 or
+
     sudo python setup.py install
+
 
 Changelog:
 
