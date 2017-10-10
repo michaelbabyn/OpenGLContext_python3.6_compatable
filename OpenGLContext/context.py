@@ -233,7 +233,7 @@ class Context(object):
             try:
                 from OpenGL import GLUT
                 GLUT.glutInit([])
-            except Exception, err:
+            except Exception as err:
                 pass
             self.OnInit()
         finally:
@@ -774,7 +774,7 @@ class Context(object):
         name = None
         try:
             name = open(filename).readline().strip()
-        except IOError, err:
+        except IOError as err:
             pass
         if not name:
             name = None
@@ -788,14 +788,14 @@ class Context(object):
         if not name:
             try:
                 os.remove( filename )
-            except Exception, err:
+            except Exception as err:
                 return False
             else:
                 return True
         else:
             try:
                 open(filename,'w').write( name )
-            except IOError, err:
+            except IOError as err:
                 return False
             return True
     setDefaultTTFFont = classmethod( setDefaultTTFFont )
@@ -842,7 +842,7 @@ class Context(object):
         name = None
         try:
             name = open(filename).readline().strip()
-        except IOError, err:
+        except IOError as err:
             pass
         if not name:
             name = None
@@ -856,14 +856,14 @@ class Context(object):
         if not name:
             try:
                 os.remove( filename )
-            except Exception, err:
+            except Exception as err:
                 return False
             else:
                 return True
         else:
             try:
                 open(filename,'w').write( name )
-            except IOError, err:
+            except IOError as err:
                 return False
             return True
     setDefaultContextType = classmethod( setDefaultContextType )

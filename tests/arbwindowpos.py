@@ -60,16 +60,16 @@ class TestContext( BaseContext ):
         
         try:
             window_pos.glWindowPos2dvARB(())
-        except (error.CopyError,GLerror,ValueError), err:
-            print 'Correct handling of incorrect parameters', err
-        except Exception, err:
+        except (error.CopyError,GLerror,ValueError) as err:
+            print 'Correct handling of incorrect parameters' as err
+        except Exception as err:
             traceback.print_exc()
             print 'Incorrect handling of incorrect parameters'
         try:
             window_pos.glWindowPos3dvARB(())
-        except (error.CopyError,GLerror, ValueError), err:
-            print 'Correct handling of incorrect parameters', err
-        except Exception, err:
+        except (error.CopyError,GLerror, ValueError) as err:
+            print 'Correct handling of incorrect parameters' as err
+        except Exception as err:
             traceback.print_exc()
             print 'Incorrect handling of incorrect parameters'
         

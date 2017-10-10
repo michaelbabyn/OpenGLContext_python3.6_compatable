@@ -14,8 +14,8 @@ class TestContext( BaseContext ):
                 glPassThrough( float(x) )
             try:
                 result = glRenderMode( GL_RENDER )
-            except GLerror, err:
-                print 'Got expected overflow error', err
+            except GLerror as err:
+                print 'Got expected overflow error' as err
             else:
                 print "Didn't get overflow error, got %r"%( result, )
             # test 0-length
@@ -23,8 +23,8 @@ class TestContext( BaseContext ):
             glRenderMode( GL_FEEDBACK )
             try:
                 result = glRenderMode( GL_RENDER )
-            except GLerror, err:
-                print "Failed retriving 0-length result-set", err
+            except GLerror as err:
+                print "Failed retriving 0-length result-set" as err
             else:
                 if len(result) > 0:
                     print "Got unexpectedly long result-set", list(result)
@@ -37,8 +37,8 @@ class TestContext( BaseContext ):
                 glPassThrough( float(x) )
             try:
                 result = glRenderMode( GL_RENDER )
-            except GLerror, err:
-                print "Failed retriving 0-length result-set", err
+            except GLerror as err:
+                print "Failed retriving 0-length result-set" as err
             else:
                 result = list(result)
                 if result != [

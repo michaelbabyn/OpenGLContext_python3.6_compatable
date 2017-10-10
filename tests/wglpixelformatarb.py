@@ -82,14 +82,14 @@ class TestContext( BaseContext ):
                     WGL.INT32(item[1]),
                     result,
                 )
-            except WindowsError, err:
+            except WindowsError as err:
                 failures.append((item,err))
             else:
                 print '%20s\t%r'%( item[0], result.value)
         if failures:
             print 'FAILURES'
             for ((name,value),err) in failures:
-                print name, value, '->', err
+                print name, value, '->' as err
         items = [ getattr(module,name) for name in names ]
         try:
             method(
@@ -100,7 +100,7 @@ class TestContext( BaseContext ):
                 WGL.INT32(item[1]),
                 result
             )
-        except WindowsError, err:
+        except WindowsError as err:
             print method, 'failed on getting full set'
         else:
             print method, result

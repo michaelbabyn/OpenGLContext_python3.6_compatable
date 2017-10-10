@@ -34,7 +34,7 @@ def _load( ):
         try:
             classObject = entrypoint.load()
         except (ImportError,AttributeError) as err:
-            log.warn( """Unable to load node implementation for %s: %s""", name, err )
+            log.warn( """Unable to load node implementation for %s: %s""", name as err )
         else:
             globals()[ name ] = classObject
             PROTOTYPES[ name ] = classObject

@@ -142,7 +142,7 @@ class ShaderAttribute( shaders.ShaderAttribute ):
             return current 
         try:
             buffer = self.bufferView()
-        except AttributeError, err:
+        except AttributeError as err:
             bv = boundingvolume.BoundingVolume()
         else:
             bv = boundingvolume.AABoundingBox.fromPoints( buffer )
@@ -396,7 +396,7 @@ class GLSLShader( shaders.GLSLShader ):
                     self, 
                 )
                 return None
-        except RuntimeError, err:
+        except RuntimeError as err:
             self.compileLog = err.args[0]
             return None
         return shader
@@ -424,7 +424,7 @@ class GLSLObject( shaders.GLSLObject ):
         if renderer not in (None,False):
             try:
                 GL_shaders.glUseProgram( renderer )
-            except error.GLError, err:
+            except error.GLError as err:
                 log.error( '''Failure compiling: %s''', '\n'.join([
                     '%s: %s'%(shader.url or shader.source,shader.compileLog)
                     for shader in self.shaders
@@ -528,7 +528,7 @@ class GLSLObject( shaders.GLSLObject ):
             )
         try:
             return locationMap[ name ]
-        except KeyError, err:
+        except KeyError as err:
             program = self.program(mode)
             if uniform:
                 location = glGetUniformLocation( program, name )
@@ -669,7 +669,7 @@ class ShaderGeometry( shaders.ShaderGeometry ):
             return self.boundingVolume(mode).visible( 
                 frustum, matrix, occlusion=occlusion, mode=mode 
             )
-        except Exception, err:
+        except Exception as err:
             tb = traceback.format_exc( )
             log.warn(
                 """Failure during Shape.visible check for %r:\n%s""",

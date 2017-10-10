@@ -232,14 +232,14 @@ class OBJHandler( base.BaseHandler ):
         #( resolvedURL, os.path.abspath(filename), file, headers )
         try:
             finalURL, filename, file, headers = loader.Loader( url, baseURL )
-        except IOError, err:
+        except IOError as err:
             if '/' in url:
                 possible = url.split( '/' )[-1]
                 try:
                     finalURL, filename, file, headers = loader.Loader( 
                         possible, baseURL 
                     )
-                except IOError, err:
+                except IOError as err:
                     log.warn(
                         """Unable to load material library: %s""",
                         url,

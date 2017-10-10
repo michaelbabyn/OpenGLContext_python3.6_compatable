@@ -32,7 +32,7 @@ class BrowserContext(BaseContext):
             target = self.loadBackground,
             args = ( url, loadCallback,),
         ).start()
-    def loadBackground( self, url, callback, errorBack = None ):
+    def loadBackground( self, url, callback as errorBack = None ):
         """Load a given URL, call callback on success
 
         If errorBack is provided, call it on errors, otherwise
@@ -41,9 +41,9 @@ class BrowserContext(BaseContext):
         try:
             sg = loader.Loader.load( url )
             callback( self, url, sg )
-        except Exception, err:
+        except Exception as err:
             if errorBack:
-                errorBack( self, url, err )
+                errorBack( self, url as err )
             else:
                 traceback.print_exc()
         
