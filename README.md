@@ -3,6 +3,8 @@ A fix for the OpenGLContext 2.0 python 3 module
 How to install:
     
     sudo python3 setup.py install
+or
+    sudo python setup.py install
 
 Changelog:
 
